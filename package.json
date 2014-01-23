@@ -5,7 +5,8 @@
   "private": true,
   "dependencies": {
     "express": "3.x",
-    "moment": "~2.5.1"
+    "moment": "~2.5.1",
+    "node-uuid": "~1.4.1"
   },
   "devDependencies": {
     "nodemon": "latest"

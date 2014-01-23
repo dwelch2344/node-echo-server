@@ -1,11 +1,12 @@
 var express = require('express')
-	, app = express()
-	, port = process.env.PORT || 3000
+   , app = express()
+   , port = process.env.PORT || 3000
 
-	, HEADER = '======================================'
+   , HEADER = '======================================'
 
-	, moment = require('moment')
-	;
+   , moment = require('moment')
+   , uuid = require('node-uuid')
+   ;
 
 
 app.use(express.bodyParser());
@@ -26,6 +27,8 @@ var handler = function(req, res, next){
 		return res.send(404);
 	}
 
+	var id = uuid.v4();
+
 	var files = [];
 	for(var i in req.files){
 		files.push({
@@ -37,6 +40,7 @@ var handler = function(req, res, next){
 	}
 
 	console.log(HEADER);
+	console.log(id);
 	console.log(moment().format());
 	console.log(req.method, "-", req.route.params[0], "\n");
 	console.log("Query:", req.query);
@@ -46,7 +50,7 @@ var handler = function(req, res, next){
 	console.log("Headers:", req.headers);
 	console.log(HEADER, "\n\n\n");
 
-	res.send(200);
+	res.send(200, "OK " + id);
 };
 
 app.get("/**", handler);
