@@ -1,0 +1,13 @@
+{
+  "name": "echo-server",
+  "description": "A simple echo server that logs to the console",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "3.x",
+    "moment": "~2.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "latest"
+  }
+}
